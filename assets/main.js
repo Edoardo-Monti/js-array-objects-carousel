@@ -43,3 +43,16 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+//creo il layout 
+/*
+for(let i = 0; i < images.length; i++){
+    document.querySelector(".main").innerHTML += ` 
+    <div class="main-img-box">
+        <img src=./assets/${images[i].image} alt="">
+        <h3>${images[i].title}</h3>
+    </div>  
+    `
+
+}
+*/

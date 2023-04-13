@@ -19,7 +19,7 @@ img{
     width: 90%;
     margin: auto auto;
     height: 50rem;
-    border: 1px dashed black;
+    box-shadow: 10px 15px 10px;
     
 }
 
@@ -29,7 +29,7 @@ img{
 
 .main{
     width: 70%;
-    border: 1px dashed red;
+    /* border: 1px dashed red; */
 }
 
 .second{
@@ -40,7 +40,7 @@ img{
 
 .img-box{
     height: calc(100% / 5);
-    border: 1px dashed blue;
+    /* border: 1px dashed blue; */
 
 }
 
@@ -62,4 +62,16 @@ img{
 
 .none{
     display: none;
+}
+
+.absolute{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+}
+
+.relative{
+    position: relative;
+   
 }
