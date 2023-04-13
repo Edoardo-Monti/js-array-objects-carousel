@@ -45,14 +45,22 @@ const images = [
 ];
 
 //creo il layout 
-/*
+
 for(let i = 0; i < images.length; i++){
-    document.querySelector(".main").innerHTML += ` 
-    <div class="main-img-box">
+    document.querySelector(".main").innerHTML = ` 
+    <div class="main-img-box relative">
         <img src=./assets/${images[i].image} alt="">
-        <h3>${images[i].title}</h3>
-    </div>  
+        <div class="absolute">
+            <h3>${images[i].title}</h3>
+            <p>${images[i].text}</p>
+        </div>
+                    
+    </div>
+    `
+    document.querySelector(".second").innerHTML +=`
+    <div class="img-box">
+        <img src=./assets/${images[i].image} alt="">
+    </div>
     `
 
 }
-*/
