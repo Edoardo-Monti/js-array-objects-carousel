@@ -45,22 +45,40 @@ const images = [
 ];
 
 //creo il layout 
-
 for(let i = 0; i < images.length; i++){
-    document.querySelector(".main").innerHTML = ` 
-    <div class="main-img-box relative">
-        <img src=./assets/${images[i].image} alt="">
-        <div class="absolute">
-            <h3>${images[i].title}</h3>
-            <p>${images[i].text}</p>
+
+    //creo le immagini principali nell'html
+    
+    document.querySelector(".main").innerHTML += ` 
+        <div class="main-img-box relative none" id="${i}">
+            <img src=./assets/${images[i].image} alt="">
+            <div class="absolute">
+                <h3>${images[i].title}</h3>
+                <p>${images[i].text}</p>
+            </div>
+                        
         </div>
-                    
-    </div>
-    `
+        `
+    //creo quelle laterali
     document.querySelector(".second").innerHTML +=`
     <div class="img-box">
         <img src=./assets/${images[i].image} alt="">
     </div>
     `
-
 }
+
+//targhettizzo la prima img e ci aggiungo la classe active
+let primaImg = document.getElementById('0')
+primaImg.classList.add("active");
+console.log(primaImg)
+
+//faccio partie una funzione che ogni 2 secondi mi toglie la classe active e la aggiunge all' immagine dopo
+const clock = setInterval(function() {
+    
+    let imgSuccessiva = primaImg.nextElementSibling
+    primaImg.classList.remove("active")
+    imgSuccessiva.classList.add("active")
+
+    console.log(imgSuccessiva)
+}, 2000)
+
