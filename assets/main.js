@@ -61,7 +61,7 @@ for(let i = 0; i < images.length; i++){
         `
     //creo quelle laterali
     document.querySelector(".second").innerHTML +=`
-    <div class="img-box">
+    <div class="img-box opacity" id="${i}">
         <img src=./assets/${images[i].image} alt="">
     </div>
     `
@@ -69,17 +69,36 @@ for(let i = 0; i < images.length; i++){
 
 //targhettizzo la prima img e ci aggiungo la classe active
 document.getElementById(`0`).classList.remove("none");
+document.getElementById('0').classList.add("first");
+document.getElementById('4').classList.add("last")
 
 let imgAttiva = document.getElementById(`0`)
-console.log(imgAttiva)
+
+// console.log(imgAttiva)
 
 //faccio partie una funzione che al click mi aggiunge la classe none e la toglie all' immagine dopo
 let next = document.querySelector(".next")
 
 next.addEventListener(`click`, function(){
     let imgSuccessiva = imgAttiva.nextElementSibling
+
+    if(imgAttiva.classList.contains("last")){
+        imgSuccessiva = document.querySelector(".first")
+    }
     imgAttiva.classList.add("none")
     imgSuccessiva.classList.remove("none")
+
     imgAttiva = imgSuccessiva
-    console.log(imgSuccessiva)
+
+    console.log(imgAttiva)
+
+    document.querySelector(".second")
 })
+ 
+let laterali = document.querySelector(".img-box")
+
+if(!imgAttiva.classList.contains("none")){
+    laterali.classList.remove("opacity")
+}
+
+

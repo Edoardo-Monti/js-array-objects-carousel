@@ -49,6 +49,11 @@
     width: 100%;
     height: 100%;
     object-fit: fill;
+   
+}
+
+.opacity{
+    opacity: 0.3;
 }
 
 .main-img-box{
