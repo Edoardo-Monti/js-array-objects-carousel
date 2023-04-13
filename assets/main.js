@@ -68,17 +68,18 @@ for(let i = 0; i < images.length; i++){
 }
 
 //targhettizzo la prima img e ci aggiungo la classe active
-let primaImg = document.getElementById('0')
-primaImg.classList.remove("none");
-console.log(primaImg)
+document.getElementById(`0`).classList.remove("none");
 
-//faccio partie una funzione che ogni 2 secondi mi aggiunge la classe none e la toglie all' immagine dopo
-const clock = setInterval(function() {
-    
-    let imgSuccessiva = primaImg.nextElementSibling
-    primaImg.classList.add("none")
+let imgAttiva = document.getElementById(`0`)
+console.log(imgAttiva)
+
+//faccio partie una funzione che al click mi aggiunge la classe none e la toglie all' immagine dopo
+let next = document.querySelector(".next")
+
+next.addEventListener(`click`, function(){
+    let imgSuccessiva = imgAttiva.nextElementSibling
+    imgAttiva.classList.add("none")
     imgSuccessiva.classList.remove("none")
-
+    imgAttiva = imgSuccessiva
     console.log(imgSuccessiva)
-}, 3000)
-
+})
