@@ -59,18 +59,35 @@ for(let i = 0; i < images.length; i++){
                         
         </div>
         `
-    //creo quelle laterali
+    if(i == [0]){
+
+       //creo quelle laterali
     document.querySelector(".second").innerHTML +=`
+    <div class="img-box" id="img${i}">
+        <img src=./assets/${images[i].image} alt="">
+    </div>
+    `  
+
+    }else{
+        document.querySelector(".second").innerHTML +=`
     <div class="img-box opacity" id="img${i}">
         <img src=./assets/${images[i].image} alt="">
     </div>
-    `
+    `  
+    }
+   
 }
 
 //targhettizzo la prima img e ci aggiungo la classe active
 document.getElementById(`0`).classList.remove("none");
 document.getElementById('0').classList.add("first");
 document.getElementById('4').classList.add("last")
+
+
+document.getElementById('img0').classList.add("first1");
+document.getElementById('img4').classList.add("last1")
+let cambioOpacity = document.getElementById('img0')
+
 
 let imgAttiva = document.getElementById(`0`)
 
@@ -80,7 +97,7 @@ let imgAttiva = document.getElementById(`0`)
 let next = document.querySelector(".next")
 let prev = document.querySelector(".prev")
 
-next.addEventListener(`click`, function pippo() {
+next.addEventListener(`click`, function(clock) {
     let imgSuccessiva = imgAttiva.nextElementSibling
 
     if(imgAttiva.classList.contains("last")){
@@ -92,6 +109,20 @@ next.addEventListener(`click`, function pippo() {
     imgAttiva = imgSuccessiva
 
     console.log(imgAttiva)
+
+
+
+
+    let cambio = cambioOpacity.nextElementSibling
+
+    if(cambioOpacity.classList.contains("last1")){
+        cambio = document.querySelector(".first1")
+    }
+    
+    cambioOpacity.classList.add("opacity")
+    cambio.classList.remove("opacity")
+
+    cambioOpacity = cambio
 
 })
 
@@ -108,7 +139,17 @@ prev.addEventListener(`click`, function() {
 
     console.log(imgAttiva)
 
+
+
+    let cambio2 = cambioOpacity.previousElementSibling
+
+    if(cambioOpacity.classList.contains("first1")){
+        cambio2 = document.querySelector(".last1")
+    }
+    
+    cambioOpacity.classList.add("opacity")
+    cambio2.classList.remove("opacity")
+
+    cambioOpacity = cambio2
+
 })
-
- 
-
